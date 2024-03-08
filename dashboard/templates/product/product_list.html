@@ -1,0 +1,81 @@
+
+{% extends '../baset.html' %}
+{% block title %} 
+ Products
+{% endblock %}
+
+{% block products %} 
+active
+{% endblock %}
+{% block content %}
+<div class="text-center">
+    <a href="{% url 'create_product' %}" class="btn btn-primary btn-simple btn-icon" role="button" rel="tooltip">
+        <i class="now-ui-icons ui-1_simple-add"></i>
+      </a>
+</div>
+
+<table class="table" dir="rtl">
+  <thead>
+      <tr>
+        <tr>
+            <th class="text-center">إسم المنتج</th>
+            <th>السعر</th>
+            <th>خصم</th>
+            <th>الصورة</th>
+            <th class="text-center">الحدث</th>
+        </tr>
+      </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+        <td class="text-center h5">{{ product.name }}</td>
+        <td >{{ product.price }}</td>
+        <td>{{ product.offers }}</td>
+        <td >
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="product Image" width="100" height="100" class="img-thumbnail small-image">
+            {% else %}
+                No image available
+            {% endif %}
+        </td>
+        <td class="text-center ">
+            <a href="{% url 'update_product'  product.id  %}" class="btn btn-success btn-simple btn-icon btn-sm" role="button" rel="tooltip">
+                <i class="now-ui-icons ui-2_settings-90"></i>
+              </a>
+            <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm" data-toggle="modal" data-target="#deleteproductModal{{ product.id }}">
+                <i class="now-ui-icons ui-1_simple-remove"></i>
+              </button>
+        </td>
+        <!-- Add more columns here as needed -->
+    </tr>
+    
+    <!-- Delete product Modal -->
+    <div class="modal fade" id="deleteproductModal{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteproductModalLabel{{ product.id }}" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteproductModalLabel{{ product.id }}">حذف التصنيف</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-right">
+              <p>هل أنت متأكد أنك تريد حذف التصنيف {{product.name}}؟</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>
+              <form action="{% url 'delete_product' product.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">حذف</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Delete product Modal -->
+{% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
