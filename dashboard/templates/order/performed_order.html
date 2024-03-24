@@ -1,0 +1,61 @@
+
+{% extends '../baset.html' %}
+{% block title %} 
+ Performed Orders
+{% endblock %}
+
+{% block performed_orders %} 
+active
+{% endblock %}
+{% block content %}
+<div class="text-center">
+
+<div class="card w-50 text-center">
+    <div class="card-body h2">
+        Performed Orders
+    </div>
+</div>
+</div>
+
+
+
+
+
+{% if orders %}
+  <table class="table table-hover  table-responsive-md text-center">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Address</th>
+        <th>Total Price</th>
+        <th>Created At</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      
+         <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.address }}</td>
+          <td>{{ order.get_total_price }}</td>
+          <td>{{ order.created_at }}</td>
+          <td><a
+            class="btn btn-primary btn-sm"
+            href="{% url "dashboard_order_details" order.id %}"
+            role="button"
+            >Details</a
+          >
+          </td>
+        
+        </tr>
+      
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No orders found.</p>
+  {% endif %}
+
+{% endblock %}

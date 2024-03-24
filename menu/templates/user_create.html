@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Signup{% endblock %}
+{% block 'user' %}{{user.username}}{% endblock %}
+{% block 'content' %}
+     <div class="container d-flex justify-content-center align-items-center">
+        <div class="card w-50" >
+            <div class="card-body">
+                    
+                    <div class=" text-center"><h2 class="">Signup </h2></div>
+                    <div class="">    
+                    <form method="post" class="">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Signup</button>
+                    </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

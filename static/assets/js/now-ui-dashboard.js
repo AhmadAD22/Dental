@@ -31,6 +31,39 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
+ $(document).ready(function() {
+  // Check if there is a success message in local storage
+  var successMessage = localStorage.getItem('orderSuccessMessage');
+  if (successMessage) {
+    // Append success message to the alert container
+    var successAlert = $('<div class="alert alert-success">' + successMessage + '</div>');
+    $('#alert-container').html(successAlert);
+
+    // Hide the alert after 3 seconds
+    setTimeout(function() {
+      successAlert.fadeOut('slow');
+    }, 3000);
+
+    // Clear the success message from local storage
+    localStorage.removeItem('orderSuccessMessage');
+  }
+
+  // Check if there is an error message in local storage
+  var errorMessage = localStorage.getItem('orderErrorMessage');
+  if (errorMessage) {
+    // Append error message to the alert container
+    var errorAlert = $('<div class="alert alert-danger">' + errorMessage + '</div>');
+    $('#alert-container').html(errorAlert);
+
+    // Hide the alert after 3 seconds
+    setTimeout(function() {
+      errorAlert.fadeOut('slow');
+    }, 3000);
+
+    // Clear the error message from local storage
+    localStorage.removeItem('orderErrorMessage');
+  }
+});
 
 (function() {
   isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;

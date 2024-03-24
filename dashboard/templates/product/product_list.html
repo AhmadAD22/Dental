@@ -14,15 +14,15 @@ active
       </a>
 </div>
 
-<table class="table" dir="rtl">
+<table class="table table-hover table-responsive-md text-center">
   <thead>
       <tr>
         <tr>
-            <th class="text-center">إسم المنتج</th>
-            <th>السعر</th>
-            <th>خصم</th>
-            <th>الصورة</th>
-            <th class="text-center">الحدث</th>
+            <th class="text-center">Product Name</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Image</th>
+            <th class="text-center">Action</th>
         </tr>
       </tr>
   </thead>
@@ -54,14 +54,14 @@ active
     <div class="modal fade" id="deleteproductModal{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteproductModalLabel{{ product.id }}" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="deleteproductModalLabel{{ product.id }}">حذف التصنيف</h5>
+            <div class="modal-header text-center" dir="rtl">
+              <h5 class="modal-title " id="deleteproductModalLabel{{ product.id }}">حذف المنتج</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body text-right">
-              <p>هل أنت متأكد أنك تريد حذف التصنيف {{product.name}}؟</p>
+              <p>هل أنت متأكد أنك تريد حذف المنتج {{product.name}}؟</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">إلغاء</button>

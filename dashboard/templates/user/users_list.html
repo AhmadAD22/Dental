@@ -1,0 +1,77 @@
+
+{% extends '../baset.html' %}
+{% block title %} 
+ Users
+{% endblock %}
+
+{% block user %} 
+active
+{% endblock %}
+{% block content %}
+<div class="text-center">
+ <a href="{% url 'create_user' %}" class="btn btn-primary btn-simple btn-icon" role="button" rel="tooltip">
+        <i class="now-ui-icons ui-1_simple-add"></i>
+      </a> 
+</div>
+
+<table class="table table-hover table-responsive-md text-center">
+  <thead>
+      <tr>
+        <tr>
+            <th class="text-center">User Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Admin</th>
+            <th class="text-center">Action</th>
+        </tr>
+      </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+        <td class="text-center">{{ user.username }}</td>
+        <td >{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td >
+            {{ user.is_superuser }}
+        </td>
+        <td class="text-center ">
+          <a href="{% url 'update_user'  user.id  %}" class="btn btn-success btn-simple btn-icon btn-sm" role="button" rel="tooltip">
+                <i class="now-ui-icons ui-2_settings-90"></i>
+              </a> 
+            <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm" data-toggle="modal" data-target="#deleteuserModal{{ user.id }}">
+                <i class="now-ui-icons ui-1_simple-remove"></i>
+              </button>
+        </td>
+        <!-- Add more columns here as needed -->
+    </tr>
+    
+    <!-- Delete user Modal -->
+    <div class="modal fade" id="deleteuserModal{{ user.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteuserModalLabel{{ user.id }}" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h5 class="modal-title " id="deleteuserModalLabel{{ user.id }}">Delete User</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>  Are you sure to delete the user "{{user.username}}"?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+               <form action="{% url 'delete_user' user.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Delete user Modal -->
+{% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

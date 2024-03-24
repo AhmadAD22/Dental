@@ -1,1 +1,57 @@
-Helllo
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'user' %}{{user.username}}{% endblock %}
+{% block 'content' %}
+<input type="hidden" id="user-id-input" class="user-id-input" value="{{ user.id }}">
+<div class="text-center">Choose Category</div>
+<div class="category-bar text-center mb-4 ">
+    <div class="category-scroll">
+        <select id="categoryFilter">
+            <option value="all"> .... All Products.... </option>
+            {% for category in categories %}
+                <option value="{{ category.slug }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="container">
+    
+        <!-- Product card content -->
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+            {% for product in products %}
+          
+              <div class="col text-center" data-category="{{ product.category.slug }}">
+                <div class="card text-center w-100">
+                  <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top" height="250" width="100">
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="{% url "product_details" product.id %}">{{ product.name }}</a></h5>
+                    <p class="card-text">Price: {{ product.price }} S.P
+                      <span class="badge badge-success"> 
+                      {% if product.offers != 0 %}
+                      Discount: {{ product.offers }}%</span>
+                      {% endif %}
+                    </p>
+                    <p class="card-text">{{ product.category }}</p>
+                  
+                    <input type="hidden" id="user-id-input-{{ product.id }}" class="user-id-input" value="{{ user.id }}">
+                    <input type="hidden" id="product-id-input-{{ product.id }}" class="product-id-input" value="{{ product.id }}">
+                    <input type="hidden" id="quantity-input-{{ product.id }}" class="quantity-input" value="1">
+                    {% if user.is_authenticated %}
+                    <button id="add-to-cart-button-{{ product.id }}" class="btn btn-primary">Add to Cart</button>
+                    {% else %}
+                    <p class="card-text text-danger">Please log in to be able to purchase </p>
+                    {% endif %}
+                    
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+</div>
+<script src="{% static 'js/menu.js'%}" type="text/javascript"></script>
+
+
+ {% endblock %}

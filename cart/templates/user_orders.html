@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'user' %}{{user.username}}{% endblock %}
+{% block 'content' %}
+<input type="hidden" id="user-id-input" class="user-id-input" value="{{ user.id }}">
+<div class="text-center">
+    <h1>User Orders</h1>
+    </div>
+
+{% if orders %}
+  <table class="table table-hover  table-responsive-md text-center">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Address</th>
+        <th>Total Price</th>
+        <th>Created At</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      
+         <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.address }}</td>
+          <td>{{ order.get_total_price }}</td>
+          <td>{{ order.created_at }}</td>
+          <td><a
+            class="btn btn-primary btn-sm"
+            href="{% url "user_order_details" order.id %}"
+            role="button"
+            >Details</a
+          >
+          </td>
+        
+        </tr>
+      
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No orders found.</p>
+{% endif %}
+
+  {% endblock %}

@@ -3,12 +3,14 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 import os
 
 # Create your models here.
+from autoslug import AutoSlugField
+
 class Category(models.Model):
     name = models.CharField(max_length=255, verbose_name='اسم التصنيف')
-    image = models.ImageField(upload_to='category/',null=True, verbose_name='رفع الصورة')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاريخ الإنشاء',blank=True,null=True)
-    updated_on = models.DateTimeField(auto_now=True, verbose_name='تاريخ التحديث',blank=True,null=True)
-    
+    slug = AutoSlugField(max_length=255, unique=True, populate_from='name', verbose_name='الاسم المختصر')
+    image = models.ImageField(upload_to='category/', null=True, verbose_name='رفع الصورة')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاريخ الإنشاء', blank=True, null=True)
+    updated_on = models.DateTimeField(auto_now=True, verbose_name='تاريخ التحديث', blank=True, null=True)
 
     def __str__(self):
         return self.name

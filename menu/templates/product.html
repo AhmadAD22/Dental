@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'user' %}{{user.username}}{% endblock %}
+{% block 'content' %}
+
+<style>
+
+/* Style the image */
+.img {
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+</style>
+<input type="hidden" id="user-id-input" class="user-id-input" value="{{ user.id }}">
+
+<div class="container marketing text-center">
+    <h2 class="featurette-heading fw-normal  "> {{ product.name }}</h2>
+    <hr class="featurette-divider">
+
+    <!-- START THE FEATURETTES -->
+    <div class="row featurette">
+      <div class="col-md-6 text-center">
+        <p class="lead">{{ product.description }}</p>
+        <p class="lead">السعر: {{ product.price }}</p>
+        <p class="lead">الحسم: {{ product.offers }}</p>
+        <p class="lead"> {{ product.category }}</p>
+        <p class="lead">{{ product.created_at }}</p>
+        <input type="hidden" id="user-id-input-{{ product.id }}" class="user-id-input" value="{{ user.id }}">
+        <input type="hidden" id="product-id-input-{{ product.id }}" class="product-id-input" value="{{ product.id }}">
+        <input type="hidden" id="quantity-input-{{ product.id }}" class="quantity-input" value="1">
+        {% if user.is_authenticated %}
+        <button id="add-to-cart-button-{{ product.id }}" class="btn btn-primary">Add to Cart</button>
+        {% else %}
+        <p class="card-text text-danger">Please log in to be able to purchase </p>
+        {% endif %}
+
+      </div>
+      <div class="col-md-6">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img" width="300" height="300">
+      </div>
+    </div>
+
+    
+    <hr class="featurette-divider">
+
+
+
+ {% endblock %}

@@ -1,0 +1,57 @@
+
+{% extends '../baset.html' %}
+{% block title %} 
+ order {{ order.id }}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="text-center">
+
+<div class="card w-50 text-center">
+    <div class="card-body">
+         <p class="card-text h3"> Order {{ order.id }}</p>
+         <p class="card-text">Status:{% if order.performed %}Performed {% else %} Unperformed {% endif %}</p>
+         {% if order.performed %}
+         {% else %}
+         <a href="{% url 'perform_orders' order.id %}" class="btn btn-primary " role="button" rel="tooltip">
+          Performe
+        </a>
+        {% endif %}
+    </div>
+</div>
+</div>
+<div class="text-center">
+    <div class="">
+      <p class="card-text">Address: {{ order.address }}</p>
+      <p class="card-text">Total Price: {{ order.get_total_price }}</p>
+      <p class="card-text">Date: {{ order.created_at }}</p>
+    </div>
+  </div>
+  {% if order.orderitem_set.exists %}
+    <table class="table table-hover  table-responsive-md text-center">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Item Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order_item in order.orderitem_set.all %}
+          <tr>
+            <td>{{ order_item.product.name }}</td>
+            <td>{{ order_item.quantity }}</td>
+            <td>{{ order_item.price }}</td>
+            <td>{{ order_item.get_item_total }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No order items found.</p>
+  {% endif %}
+
+{% endblock %}

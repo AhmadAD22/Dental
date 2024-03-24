@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'user' %}{{user.username}}{% endblock %}
+{% block 'content' %}
+<input type="hidden" id="user-id-input" class="user-id-input" value="{{ user.id }}">
+<div class="container">
+    <div class="text-center">
+    <h1 class="mt-4">Confirm Order</h1>
+    </div>
+    <form method="POST" action="{% url 'confirm_order' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" id="address" name="address" required>
+        </div>
+        <br/>
+        <h2>Cart Items:</h2>
+        <table class="table table-hover table-responsive-md text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td>{{ item.product }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>{{ item.total_price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br/>
+       
+        <div class="text-center">
+        <p class="h5">Total Price: {{ total_price }}</p>
+            <br/>
+        <button type="submit" class="btn btn-primary">Confirm Order</button>
+        </div>
+    </form>
+</div>
+  {% endblock %}

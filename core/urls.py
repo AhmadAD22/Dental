@@ -18,11 +18,15 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from dashboard.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('menu/', include('menu.urls')),
-    path('dashboard/', include('dashboard.urls')),
+    path('store/', include('menu.urls')),
+    # path('login/',login_user, name='login'),
+    # path('logout/',logout_user, name='logout'),
+    path('dashboarda/', include('dashboard.urls')),
+    path('cart/', include('cart.urls')),
     
 ]
 if settings.DEBUG:

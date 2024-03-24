@@ -22,18 +22,145 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 
 Copyright (c) 2015 Daniel Eden
 */
-.card {
-  width: 50% !important; /* Default width for computers and large screens */
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
 
-  /* Media query for mobile devices */
-  @media (max-width: 767px) {
-    width: 100% !important; /* Width set to 100% for mobile devices */
+
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #CCC;
+      margin: 10% auto;
+      padding: 20px;
+      border: 2px solid #888;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .close {
+      color: #880000;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+ /* Custom CSS for overlay text */
+
+ .p-top-5{
+  margin-top: -1.5em;
+
+ }
+ .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+/* CSS to darken the image */
+.darken-image {
+  filter: brightness(40%);
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+/* rtl:end:ignore */
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+/* rtl:begin:remove */
+.featurette-heading {
+  letter-spacing: -.05rem;
+}
+
+/* rtl:end:remove */
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
   }
 }
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+
+
+
 body{
   font-family: "IBM Plex Sans Arabic", sans-serif !important;
   font-weight: 400 !important;
   font-style: normal !important;
+  background: #CCC;
 }
 .animated {
   -webkit-animation-duration: 1s;
@@ -573,7 +700,7 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 }
 
 .btn-primary {
-  background-color: #f96332;
+  background-color: #605dff;
   color: #FFFFFF;
 }
 
@@ -588,10 +715,10 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .show>.btn-primary.dropdown-toggle,
 .show>.btn-primary.dropdown-toggle:focus,
 .show>.btn-primary.dropdown-toggle:hover {
-  background-color: #fa7a50;
+  background-color: #8381ff;
   color: #FFFFFF;
   box-shadow: none;
-  border-color: #fa7a50;
+  border-color: #8381ff;
 }
 
 .btn-primary:not([data-action]):not([class*="btn-outline-"]):hover {
@@ -622,19 +749,19 @@ fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary.focus,
 fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #f96332;
-  border-color: #f96332;
+  background-color: #605dff;
+  border-color: #605dff;
 }
 
 .btn-primary.btn-link {
-  color: #f96332;
+  color: #605dff;
 }
 
 .btn-primary.btn-link:hover,
 .btn-primary.btn-link:focus,
 .btn-primary.btn-link:active {
   background-color: transparent;
-  color: #fa7a50;
+  color: #8381ff;
   text-decoration: none;
   box-shadow: none;
 }
@@ -909,7 +1036,7 @@ fieldset[disabled] .btn-danger.active {
 
 .btn-neutral {
   background-color: #FFFFFF;
-  color: #f96332;
+  color: #605dff;
 }
 
 .btn-neutral:hover,
@@ -1026,13 +1153,13 @@ fieldset[disabled] .btn-neutral.active {
 .show>.btn-neutral.dropdown-toggle:focus,
 .show>.btn-neutral.dropdown-toggle:hover {
   background-color: #FFFFFF;
-  color: #fa7a50 !important;
+  color: #8381ff !important;
   box-shadow: none;
 }
 
 .btn-neutral:hover,
 .btn-neutral:focus {
-  color: #fa7a50;
+  color: #8381ff;
 }
 
 .btn-neutral:hover:not(.nav-link),
@@ -1054,8 +1181,8 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .btn-outline-primary {
-  color: #f96332;
-  border-color: #f96332;
+  color: #605dff;
+  border-color: #605dff;
 }
 
 .btn-outline-primary:hover,
@@ -1070,8 +1197,8 @@ fieldset[disabled] .btn-neutral.active {
 .show>.btn-outline-primary.dropdown-toggle:focus,
 .show>.btn-outline-primary.dropdown-toggle:hover {
   background-color: transparent;
-  color: #fa7a50;
-  border-color: #fa7a50;
+  color: #8381ff;
+  border-color: #8381ff;
   box-shadow: none;
 }
 
@@ -1352,7 +1479,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control:focus {
-  border: 1px solid #f96332;
+  border: 1px solid #605dff;
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: 0 !important;
@@ -1363,7 +1490,7 @@ fieldset[disabled] .btn-link.active {
 .form-control:focus~.input-group-append .input-group-text,
 .form-control:focus+.input-group-prepend .input-group-text,
 .form-control:focus~.input-group-prepend .input-group-text {
-  border: 1px solid #f96332;
+  border: 1px solid #605dff;
   border-left: none;
   background-color: transparent;
 }
@@ -1695,7 +1822,7 @@ fieldset[disabled] .btn-link.active {
 .input-group-focus .input-group-prepend .input-group-text,
 .input-group-focus .input-group-append .input-group-text {
   background-color: #FFFFFF;
-  border-color: #f96332;
+  border-color: #605dff;
 }
 
 .input-group-focus.no-border .input-group-prepend .input-group-text,
@@ -1861,12 +1988,12 @@ h6 {
 }
 
 a {
-  color: #f96332;
+  color: #605dff;
 }
 
 a:hover,
 a:focus {
-  color: #f96332;
+  color: #605dff;
 }
 
 h1,
@@ -1969,7 +2096,7 @@ p.description {
 .text-primary,
 a.text-primary:focus,
 a.text-primary:hover {
-  color: #f96332 !important;
+  color: #605dff !important;
 }
 
 .text-info,
@@ -2017,12 +2144,12 @@ a.text-gray:hover {
 }
 
 .blockquote.blockquote-primary {
-  border-color: #f96332;
-  color: #f96332;
+  border-color: #605dff;
+  color: #605dff;
 }
 
 .blockquote.blockquote-primary small {
-  color: #f96332;
+  color: #605dff;
 }
 
 .blockquote.blockquote-danger {
@@ -2295,7 +2422,9 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 .navbar a.dropdown-item {
   color: #888;
 }
-
+.navbar-text{
+  font-size: 1.2em;
+}
 .navbar.bg-white .input-group .form-control,
 .navbar.bg-white .input-group.no-border .form-control {
   color: #888;
@@ -2486,7 +2615,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .navbar .navbar-brand {
   text-transform: uppercase;
-  font-size: 0.8571em;
+  font-size: 1em;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   line-height: 1.625rem;
@@ -2547,7 +2676,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 }
 
 .bg-primary {
-  background-color: #f96332 !important;
+  background-color: #605dff !important;
 }
 
 .bg-info {
@@ -3454,6 +3583,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .now-ui-icons.shopping_cart-simple:before {
+  font-size: 2em !important;
   content: "\ea1d";
 }
 
@@ -3619,7 +3749,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .all-icons [class*="now-ui-icons"] {
-  font-size: 32px;
+  font-size: 55px;
 }
 
 .all-icons .font-icon-detail p {
@@ -4115,17 +4245,17 @@ Created using IcoMoon - icomoon.io
 
 .sidebar[data-color="orange"]:after,
 .off-canvas-sidebar[data-color="orange"]:after {
-  background: #f96332;
+  background: #605dff;
 }
 
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]),
 .off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) {
-  color: #f96332;
+  color: #605dff;
 }
 
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i,
 .off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i {
-  color: #f96332;
+  color: #605dff;
 }
 
 .sidebar[data-color="red"]:after,
@@ -4219,10 +4349,10 @@ Created using IcoMoon - icomoon.io
   height: 260px;
   padding-top: 80px;
   padding-bottom: 45px;
-  background: #2d3138;
+  background: #576680;
   /* fallback for old browsers */
-  background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
-  background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#4f5966), color-stop(60%, #20344b), to(#2b3b4d));
+  background: linear-gradient(to right, #4f5966 0%, #20344b 60%, #20344b 100%);
   position: relative;
   overflow: hidden;
 }
@@ -4399,7 +4529,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .fixed-plugin .badge-orange {
-  background-color: #f96332;
+  background-color: #605dff;
 }
 
 .fixed-plugin .badge-yellow {
@@ -4653,11 +4783,11 @@ Created using IcoMoon - icomoon.io
 }
 
 .card[data-background-color="orange"] {
-  background-color: #f96332;
+  background-color: #605dff;
 }
 
 .card[data-background-color="orange"] .card-header {
-  background-color: #f96332;
+  background-color: #605dff;
 }
 
 .card[data-background-color="orange"] .card-footer .stats {
