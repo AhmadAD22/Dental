@@ -6,6 +6,10 @@ from datetime import datetime, timedelta
 from .forms import*
 from django.contrib.auth import authenticate, login
 
+
+def about(request):
+    return render(request,'about.html')
+
 def create_user(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)

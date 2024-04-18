@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block 'user' %}{{user.username}}{% endblock %}
+{% block home %}active{% endblock home %}
 {% block 'content' %}
 <input type="hidden" id="user-id-input" class="user-id-input" value="{{ user.id }}">
 
@@ -16,8 +17,8 @@
           <img src="{% static "images/d2.jpg" %}" class=" darken-image w-100" height="500" alt="Full Width Image">
           <div class="overlay">
             <h2>DENTAL TOOLS</h2>
-            <p>The best place to get dental tools </p>
-            <a href="{% url "menu" %}" class="btn btn-primary">Our Products</a>
+            <p>مكانك الأفضل لشراء معدات أطباء الأسنان</p>
+            <a href="{% url "menu" %}" class="btn btn-primary">الــمــتــجــر</a>
           </div>
         </div>
       </div>
@@ -30,7 +31,7 @@
   <!-- Wrap the rest of the page in another container to center all the content. -->
   <hr class="featurette-divider">
   <div class="text-center">
-    <p class="h3">New Products</p>
+    <p class="h3">منتجات جديدة</p>
   </div>
 
   <hr class="featurette-divider">
@@ -45,7 +46,7 @@
               <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top" height="250" width="100">
               <div class="card-body">
                 <h5 class="card-title"><a href="{% url "product_details" product.id %}">{{ product.name }}</a></h5>
-                <p class="card-text">Price: {{ product.price }} S.P
+                <p class="card-text">السعر: {{ product.price }} ل.س
                   <span class="badge badge-success"> 
                   {% if product.offers != 0 %}
                   Discount: {{ product.offers }}%</span>
@@ -57,9 +58,9 @@
                 <input type="hidden" id="product-id-input-{{ product.id }}" class="product-id-input" value="{{ product.id }}">
                 <input type="hidden" id="quantity-input-{{ product.id }}" class="quantity-input" value="1">
                 {% if user.is_authenticated %}
-                <button id="add-to-cart-button-{{ product.id }}" class="btn btn-primary">Add to Cart</button>
+                <button id="add-to-cart-button-{{ product.id }}" class="btn btn-primary">أضف إلى السلة</button>
                 {% else %}
-                <p class="card-text text-danger">Please log in to be able to purchase </p>
+                <p class="card-text text-danger">من فضلك قم بتسجيل الدخول لتتمكن من الشراء </p>
                 {% endif %}
                 
               </div>
@@ -68,7 +69,7 @@
         {% endfor %}
       </div>
       <div class="text-center">
-        <p ><a class="btn btn-primary" href="{% url "menu" %}">Show More &raquo;</a></p>
+        <p ><a class="btn btn-primary" href="{% url "menu" %}">عرض المزيد &raquo;</a></p>
       </div>
 </div>
 
@@ -90,7 +91,7 @@
       <div class="col-md-7 text-right">
         <h2 class="featurette-heading fw-normal  ">جودة عالية وأسعار مميزة</h2>
         <p class="lead">متعاقدين مع أفضل الماركات العالمية لتكون متميز في أعمالك ونقدم لك أفضل الأسعار والحسومات لتبدأ عملك بأسرع وقت</p>
-        <p ><a class="btn btn-primary" href="{% url "menu" %}">Our Products &raquo;</a></p>
+        <p ><a class="btn btn-primary" href="{% url "about" %}">مزيد من التفاصيل &raquo;</a></p>
 
       </div>
       <div class="col-md-5">
@@ -105,7 +106,7 @@
       <div class="col-md-7 order-md-2">
         <h2 class="featurette-heading fw-normal lh-1 text-right">ضمانات وكفالات مميزة</h2>
         <p class="lead text-right">نقدم لك أفضل الكفالات بدون زيادة على السعر مع وجود فريق صيانة مختص في حال الأعطال</p>
-        <p ><a class="btn btn-primary" href="{% url "menu" %}">Our Products &raquo;</a></p>
+        <p ><a class="btn btn-primary" href="{% url "about" %}">مزيد من التفاصيل &raquo;</a></p>
 
       </div>
       <div class="col-md-5 order-md-1">
@@ -113,46 +114,7 @@
       </div>
     </div>
 
-    <hr class="featurette-divider">
 
-    <!-- /END THE FEATURETTES -->
-    <!-- Three columns of text below the carousel -->
-    <div class="text-center">
-      <p class="h3">About Us</p>
-    </div>
-    <hr class="featurette-divider">
-
-    <div class="row">
-      <div class="col-lg-4">
-        <img src="{% static "images/shadi.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
-        <h2 class="fw-normal">شادي نصار</h2>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img src="{% static "images/nataly.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
-        <h2 class="fw-normal mt-1">نتالي أبو زيد</h2>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img src="{% static "images/ali.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
-        <h2 class="fw-normal">علي جبيلي</h2>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
-
-    <!-- Three columns of text below the carousel -->
-    <div class="row">
-      <div class="col-lg-4">
-        <img src="{% static "images/fatima.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
-        <h2 class="fw-normal">فاطمة المصطفى</h2>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img src="{% static "images/ali2.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
-
-        <h2 class="fw-normal">علي يوسف</h2>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img src="{% static "images/aya.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
-        <h2 class="fw-normal">أية سليمان</h2>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
 
   </div><!-- /.container -->
 

@@ -1,29 +1,35 @@
 
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title %}Confirm Order{% endblock %}
 {% block 'user' %}{{user.username}}{% endblock %}
+{% block order %}active{% endblock order %}
 {% block 'content' %}
+
 <input type="hidden" id="user-id-input" class="user-id-input" value="{{ user.id }}">
-<div class="container">
+<div class="container" dir="rtl">
     <div class="text-center">
-    <h1 class="mt-4">Confirm Order</h1>
+    <h1 class="mt-4">تأكيد الطلب</h1>
     </div>
+    <hr class="featurette-divider">
+
     <form method="POST" action="{% url 'confirm_order' %}">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="address">Address:</label>
+        <div class="form-group text-right">
+            <label for="address ">العنوان:</label>
             <input type="text" class="form-control" id="address" name="address" required>
         </div>
         <br/>
-        <h2>Cart Items:</h2>
+        <div class="text-right">
+        <h2>العناصر المضافة إلى السلة</h2>
+        </div>
         <table class="table table-hover table-responsive-md text-center">
             <thead class="thead-dark">
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total Price</th>
+                    <th>المنتج</th>
+                    <th>الكمية</th>
+                    <th>السعر</th>
+                    <th>السعر الكلي</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,9 +46,9 @@
         <br/>
        
         <div class="text-center">
-        <p class="h5">Total Price: {{ total_price }}</p>
+        <p class="h5">السعر الإجمالي: {{ total_price }}</p>
             <br/>
-        <button type="submit" class="btn btn-primary">Confirm Order</button>
+        <button type="submit" class="btn btn-primary">تأكيد الطلب</button>
         </div>
     </form>
 </div>

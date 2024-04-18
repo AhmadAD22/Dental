@@ -1,22 +1,23 @@
 
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title %}User orders{% endblock %}
+{% block order %}active{% endblock order %}
 {% block 'user' %}{{user.username}}{% endblock %}
 {% block 'content' %}
 <input type="hidden" id="user-id-input" class="user-id-input" value="{{ user.id }}">
 <div class="text-center">
-    <h1>User Orders</h1>
+    <h1>طلباتي</h1>
     </div>
 
 {% if orders %}
   <table class="table table-hover  table-responsive-md text-center">
     <thead>
       <tr>
-        <th>Order ID</th>
-        <th>Address</th>
-        <th>Total Price</th>
-        <th>Created At</th>
+        <th>ID</th>
+        <th>العنوان</th>
+        <th>السعر الكلي</th>
+        <th>التاريخ</th>
         <th>Action</th>
 
       </tr>
@@ -33,7 +34,7 @@
             class="btn btn-primary btn-sm"
             href="{% url "user_order_details" order.id %}"
             role="button"
-            >Details</a
+            >تفاصيل</a
           >
           </td>
         

@@ -2560,7 +2560,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .navbar .navbar-nav .nav-link {
   text-transform: uppercase;
-  font-size: 0.7142em;
+  font-size: 1em;
   padding: 0.5rem 0.7rem;
   line-height: 1.625rem;
   margin-right: 3px;
@@ -2605,8 +2605,8 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 }
 
 .navbar .logo-container {
-  width: 27px;
-  height: 27px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   margin: 0 auto;
   border-radius: 50%;

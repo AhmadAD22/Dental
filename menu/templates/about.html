@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About{% endblock %}
+{% block 'user' %}{{user.username}}{% endblock %}
+{% block about %}active{% endblock about %}
+{% block 'content' %}
+
+<main class="">
+    <div class="text-center mt-5">
+        <p class="h3">من نحن؟</p>
+      </div>    
+      <hr class="featurette-divider">
+    <!-- START THE FEATURETTES -->
+
+    <div class="container marketing">
+        <div class="row featurette">
+            <div class="col-md-7 text-right mt-5">
+              <p class="lead">بوجود العديد من الإدوات المميزة والعالية الجودة، نحن في متجر بيع أدوات أطباء الأسنان نسعى لتلبية احتياجات المهنيين في مجال طب الأسنان. نحن نقدم مجموعة واسعة من الأدوات والمعدات الضرورية لتحقيق النجاح في ممارسة طب الأسنان.</p>
+              <p class="lead">تتضمن منتجاتنا أدوات التشخيص والتنظيف والجراحة وتركيبات الأسنان، بالإضافة إلى مجموعة متنوعة من المواد والمستلزمات الأخرى المهمة. نحن نعمل مع موردين موثوقين ومصنعين معتمدين لضمان توفر منتجات عالية الجودة وتقديم خدمة ممتازة لعملائنا.</p>
+              <p class=" lead">فريقنا المتخصص والملتزم يسعى جاهدًا لتقديم المشورة والدعم لعملائنا، سواء كانوا أطباء أسنان مبتدئين أو خبراء في المجال. نحن ندرك أهمية الأدوات الدقيقة والموثوقة في تحقيق نتائج متميزة وراضية للمرضى.</p>
+
+            </div>
+            <div class="col-md-5 text-center">
+              <img src="{% static "images/about3.jpg" %}" class="img mt-5 " height="300" alt="Full Width Image">
+            </div>
+          </div>
+      
+          <hr class="featurette-divider">
+      
+      
+          <div class="row featurette">
+            <div class="col-md-7 order-md-2 text-right mt-5">
+             
+              <p class=" lead">نحن ملتزمون بتوفير تجربة تسوق ممتازة وسهلة لعملائنا، ونسعى لبناء علاقات طويلة الأمد مبنية على الثقة والاحترافية. نحن ندعم تطور مجال طب الأسنان من خلال توفير أحدث الابتكارات والتقنيات في صناعة الأدوات الطبية.</p>
+              <p class="card-text lead">في متجرنا، ستجد أدوات طب الأسنان التي تحتاجها لتحقيق أفضل النتائج وتقديم الرعاية الفائقة لمرضاك. اكتشف مجموعتنا الواسعة اليوم وانضم إلى عائلة عملائنا المميزة في متجر بيع أدوات أطباء الأسنان.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+              <img src="{% static "images/about2.jpg" %}" class="img mt-5 "  alt="Full Width Image">
+            </div>
+          </div>
+      
+
+      <hr class="featurette-divider">
+  
+
+    <!-- Three columns of text below the carousel -->
+    <div class="text-center">
+        <p class="h3">فريقنا</p>
+      </div>
+      <hr class="featurette-divider">
+
+      <div class="row text-center">
+        <div class="col-lg-4">
+          <img src="{% static "images/shadi.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
+          <h5 class="fw-normal">شادي نصار</h5>
+          <p>Backend Developer</p>
+          <p><a href="https://wa.me/963958379452">+963958379452 </a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img src="{% static "images/nataly.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
+          <h5 class="fw-normal mt-1">نتالي أبو زيد</h5>
+          <p>Backend Developer</p>
+          <p><a href="https://wa.me/963981604687">+963981604687</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img src="{% static "images/ali.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
+          <h5 class="fw-normal">علي جبيلي</h5>
+          <p>Backend Developer</p>
+          <p><a href="https://wa.me/936998226652">+936998226652</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+  
+      <!-- Three columns of text below the carousel -->
+      <div class="row text-center">
+        <div class="col-lg-4">
+          <img src="{% static "images/fatima.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
+          <h5 class="fw-normal">فاطمة المصطفى</h5>
+          <p>Frontend Developer</p>
+          <p>
+            <a href="https://wa.me/963954897940">
+            +963954897940
+        </a>
+          </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img src="{% static "images/ali2.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
+  
+          <h5 class="fw-normal">علي يوسف</h5>
+          <p>Frontend Developer</p>
+          <p>
+            <a href="https://wa.me/963937403237">
+            +963937403237
+        </a>
+          </p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img src="{% static "images/aya.jpg" %}" class="rounded-circle" height="140" width="140" alt="Ali">
+          <h5 class="fw-normal">أية سليمان</h5>
+          <p>Frontend Developer</p>
+          <p>
+            <a href="https://wa.me/963998810910">
+            +963998810910
+        </a>
+          </p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+  
+    </div><!-- /.container -->
+</main>
+{% endblock %}

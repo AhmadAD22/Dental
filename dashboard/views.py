@@ -137,7 +137,7 @@ def product_list(request):
 @login_required(login_url='login')  # Redirect to the login page if the user is not authenticated
 def new_orders(request):
     # Retrieve orders for the logged-in user
-    orders = Order.objects.filter(user=request.user,performed=False)
+    orders = Order.objects.filter(performed=False)
 
     context = {
         'orders': orders,
@@ -147,7 +147,7 @@ def new_orders(request):
 @login_required(login_url='login')  # Redirect to the login page if the user is not authenticated
 def performed_orders(request):
     # Retrieve orders for the logged-in user
-    orders = Order.objects.filter(user=request.user,performed=True)
+    orders = Order.objects.filter(performed=True)
 
     context = {
         'orders': orders,
